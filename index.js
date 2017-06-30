@@ -33,6 +33,7 @@ export default class Carousel extends Component {
     pageInfoBottomContainerStyle: View.propTypes.style,
     pageInfoTextSeparator: PropTypes.string,
     bullets: PropTypes.bool,
+    bulletContainerStyle: Text.propTypes.style,
     bulletsContainerStyle: Text.propTypes.style,
     bulletStyle: Text.propTypes.style,
     arrows: PropTypes.bool,
@@ -297,7 +298,7 @@ export default class Carousel extends Component {
         </TouchableWithoutFeedback>);
     }
     return (
-      <View style={styles.bullets} pointerEvents="box-none">
+      <View style={[styles.bullets, this.props.bulletContainerStyle]} pointerEvents="box-none">
         <View style={[styles.bulletsContainer, this.props.bulletsContainerStyle]} pointerEvents="box-none">
           {bullets}
         </View>
@@ -397,7 +398,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     right: 0,
-    bottom: 10,
     height: 30,
     backgroundColor: 'transparent',
     alignItems: 'center',
